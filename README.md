@@ -1,23 +1,48 @@
-# Hello world JavaScript action
+# Update File Action
 
-This action prints "Hello World" or "Hello" + the name of a person to greet to the log. To learn how this action was built, see "[Creating a JavaScript action](https://help.github.com/en/articles/creating-a-javascript-action)" in the GitHub Help documentation.
+This Action lets you Create/Update/Delete a file in a repository other than the one running the Action.
 
 ## Inputs
 
-### `who-to-greet`
+### `github-token`
 
-**Required** The name of the person to greet. Default `"World"`.
+**Required** GitHub Token to use to access the target repository.
 
-## Outputs
+### `owner`
 
-### `time`
+**Required** Owner of the target repository.
 
-The time we greeted you.
+### `repository`
+
+**Required** Target repository name.
+
+### `target-file-path`
+
+**Required** Path of file in the repository to create/update/delete.
+
+### `commit-message`
+
+**Required** The commit message to use. Default `"Automated workflow commit."`.
+
+### `content`
+
+**Required** If creating/updating, the content for the file. Default `""`.
+
+### `delete`
+
+**Required** If the file should be deleted, instead of created/updated. Default `"false"`.
 
 ## Example usage
 
 ```yaml
-uses: actions/hello-world-javascript-action@main
+uses: spacelift-io/update-file-action@v1.0.0
 with:
-  who-to-greet: 'Mona the Octocat'
+  github-token: ${{ secrets.GH_TOKEN }}
+  owner: spacelift-io
+  repository: update-file-action
+  target-file-path: 'test/main2.md'
+  content: |
+    Amazing
+    Great
+    Content
 ```
