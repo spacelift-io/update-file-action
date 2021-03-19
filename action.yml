@@ -1,5 +1,5 @@
-name: 'Create/Update/Delete Filea'
-description: 'Manipulates a file in the target repository.'
+name: 'Create/Update/Delete File'
+description: 'Create/Update/Delete a file in the target repository.'
 inputs:
   github-token:
     description: 'GitHub access token with access to the target repository.'
